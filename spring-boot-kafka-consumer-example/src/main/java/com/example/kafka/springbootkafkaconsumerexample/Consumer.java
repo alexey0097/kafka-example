@@ -1,5 +1,6 @@
 package com.example.kafka.springbootkafkaconsumerexample;
 
+import com.example.kafka.CarDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -12,7 +13,12 @@ public class Consumer {
 
     @KafkaListener(topics = "users", groupId = "library1")
     public void consume(String message){
-        logger.info(String.format("$$ -> Consumed Message -> %s",message));
+        logger.info(String.format("$$ -> Consumed Message -> %s", message));
+    }
+
+    @KafkaListener(topics = "cars", groupId = "library1", containerFactory = "kafkaListenerContainerCarFactory")
+    public void consume2(CarDto car){
+        logger.info(String.format("$$ -> Consumed Car -> %s", car.toString()));
     }
 
 }

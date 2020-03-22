@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>service-api</module>
         <module>spring-boot-kafka-producer-example</module>
         <module>spring-boot-kafka-consumer-example</module>
     </modules>
